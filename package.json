@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
+    "@emotion/react": "^11.4.1",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@svgr/webpack": "5.5.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
@@ -118,7 +119,7 @@
       "^.+\\.module\\.(css|sass|scss)$"
     ],
     "snapshotSerializers": [
-      "enzyme-to-json/serializer"
+      "@emotion/jest/enzyme-serializer"
     ],
     "modulePaths": [],
     "moduleNameMapper": {
@@ -153,6 +154,7 @@
     "arrowParens": "avoid"
   },
   "devDependencies": {
+    "@emotion/jest": "^11.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.2",
