@@ -148,6 +148,10 @@
       "react-app"
     ]
   },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  },
   "devDependencies": {
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",

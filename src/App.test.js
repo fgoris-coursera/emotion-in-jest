@@ -1,4 +1,4 @@
-import { shallow } from "enzyme";
+import { shallow } from 'enzyme';
 import App from './App';
 
 test('renders learn react link', () => {
@@ -8,7 +8,7 @@ test('renders learn react link', () => {
   expect(link.text()).toEqual(expect.stringMatching(/learn react/i));
 });
 
-test("renders", () => {
+test('renders', () => {
   const wrapper = shallow(<App />);
   expect(wrapper).toMatchInlineSnapshot(`
     <div
