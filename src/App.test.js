@@ -1,15 +1,27 @@
 import { shallow } from 'enzyme';
+import { ThemeProvider } from '@emotion/react';
+import theme from './theme';
 import App from './App';
 
 test('renders learn react link', () => {
-  const wrapper = shallow(<App />);
+  const wrapper = shallow(<App />, {
+    wrappingComponent: ThemeProvider,
+    wrappingComponentProps: {
+      theme,
+    },
+  });
   const link = wrapper.find('a');
   expect(link).toHaveLength(1);
   expect(link.text()).toEqual(expect.stringMatching(/learn react/i));
 });
 
 test('renders', () => {
-  const wrapper = shallow(<App />);
+  const wrapper = shallow(<App />, {
+    wrappingComponent: ThemeProvider,
+    wrappingComponentProps: {
+      theme,
+    },
+  });
   expect(wrapper).toMatchInlineSnapshot(`
     @keyframes animation-0 {
       from {

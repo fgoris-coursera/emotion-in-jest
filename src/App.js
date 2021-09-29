@@ -15,8 +15,8 @@ const styles = {
   app: css`
     text-align: center;
   `,
-  appHeader: css`
-    background-color: #282c34;
+  appHeader: theme => css`
+    background-color: ${theme.colors.background};
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -32,8 +32,8 @@ const styles = {
       animation: ${appLogoSpin} infinite 20s linear;
     }
   `,
-  appLink: css`
-    color: #61dafb;
+  appLink: theme => css`
+    color: ${theme.colors.link};
   `,
 };
 
