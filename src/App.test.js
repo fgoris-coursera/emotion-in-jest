@@ -3,6 +3,13 @@ import { ThemeProvider } from '@emotion/react';
 import theme from './theme';
 import App from './App';
 
+const mockTheme = theme;
+
+jest.mock('@emotion/react', () => ({
+  ...jest.requireActual('@emotion/react'),
+  useTheme: () => mockTheme,
+}));
+
 xtest('renders learn react link', () => {
   const wrapper = shallow(<App />, {
     wrappingComponent: ThemeProvider,
