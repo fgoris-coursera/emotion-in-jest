@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css, keyframes } from '@emotion/react';
+import { css, keyframes, useTheme } from '@emotion/react';
 import logo from './logo.svg';
 
 const appLogoSpin = keyframes`
@@ -11,33 +11,33 @@ const appLogoSpin = keyframes`
   }
 `;
 
-const styles = {
-  app: css`
-    text-align: center;
-  `,
-  appHeader: theme => css`
-    background-color: ${theme.colors.background};
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  `,
-  appLogo: css`
-    height: 40vmin;
-    pointer-events: none;
-    @media (prefers-reduced-motion: no-preference) {
-      animation: ${appLogoSpin} infinite 20s linear;
-    }
-  `,
-  appLink: theme => css`
-    color: ${theme.colors.link};
-  `,
-};
-
 function App() {
+  const theme = useTheme();
+  const styles = {
+    app: css`
+      text-align: center;
+    `,
+    appHeader: css`
+      background-color: ${theme.colors.background};
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      color: white;
+    `,
+    appLogo: css`
+      height: 40vmin;
+      pointer-events: none;
+      @media (prefers-reduced-motion: no-preference) {
+        animation: ${appLogoSpin} infinite 20s linear;
+      }
+    `,
+    appLink: css`
+      color: ${theme.colors.link};
+    `,
+  };
   return (
     <div css={styles.app}>
       <header css={styles.appHeader}>
