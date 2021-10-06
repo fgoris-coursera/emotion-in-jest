@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css, keyframes } from '@emotion/react';
 import logo from './logo.svg';
+import themeBased from './themeBased';
 
 const appLogoSpin = keyframes`
   from {
@@ -11,7 +12,7 @@ const appLogoSpin = keyframes`
   }
 `;
 
-const styles = {
+const styles = themeBased({
   app: css`
     text-align: center;
   `,
@@ -35,7 +36,7 @@ const styles = {
   appLink: theme => css`
     color: ${theme.colors.link};
   `,
-};
+});
 
 function App() {
   return (
