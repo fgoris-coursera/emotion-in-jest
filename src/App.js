@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css, keyframes } from '@emotion/react';
+import { css, keyframes, useTheme } from '@emotion/react';
 import logo from './logo.svg';
 
 const appLogoSpin = keyframes`
@@ -38,15 +38,16 @@ const styles = {
 };
 
 function App() {
+  const theme = useTheme();
   return (
     <div css={styles.app}>
-      <header css={styles.appHeader}>
+      <header css={styles.appHeader(theme)}>
         <img src={logo} css={styles.appLogo} alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
-          css={styles.appLink}
+          css={styles.appLink(theme)}
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
