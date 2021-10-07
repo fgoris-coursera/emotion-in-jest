@@ -3,7 +3,15 @@ import { ThemeProvider } from '@emotion/react';
 import theme from './theme';
 import App from './App';
 
-jest.mock('./Launches', () => () => 'Launches');
+const createMockComponent = name => {
+  const MockComponent = ({ children }) => {
+    return <>{children}</>;
+  };
+  MockComponent.displayName = name;
+  return MockComponent;
+};
+
+jest.mock('./Launches', () => createMockComponent('Launches'));
 
 test('renders learn react link', () => {
   const wrapper = mount(<App />, {
@@ -111,9 +119,7 @@ test('renders', () => {
           >
             Learn React
           </a>
-          <Component>
-            Launches
-          </Component>
+          <Launches />
         </header>
       </div>
     </App>
