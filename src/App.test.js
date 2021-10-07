@@ -1,10 +1,10 @@
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { ThemeProvider } from '@emotion/react';
 import theme from './theme';
 import App from './App';
 
-xtest('renders learn react link', () => {
-  const wrapper = shallow(<App />, {
+test('renders learn react link', () => {
+  const wrapper = mount(<App />, {
     wrappingComponent: ThemeProvider,
     wrappingComponentProps: {
       theme,
@@ -16,7 +16,7 @@ xtest('renders learn react link', () => {
 });
 
 test('renders', () => {
-  const wrapper = shallow(<App />, {
+  const wrapper = mount(<App />, {
     wrappingComponent: ThemeProvider,
     wrappingComponentProps: {
       theme,
@@ -81,33 +81,35 @@ test('renders', () => {
       color: #61dafb;
     }
 
-    <div
-      className="emotion-0"
-    >
-      <header
-        className="emotion-1"
+    <App>
+      <div
+        className="emotion-0"
       >
-        <img
-          alt="logo"
-          className="emotion-2"
-          src="logo.svg"
-        />
-        <p>
-          Edit 
-          <code>
-            src/App.js
-          </code>
-           and save to reload.
-        </p>
-        <a
-          className="emotion-3"
-          href="https://reactjs.org"
-          rel="noopener noreferrer"
-          target="_blank"
+        <header
+          className="emotion-1"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <img
+            alt="logo"
+            className="emotion-2"
+            src="logo.svg"
+          />
+          <p>
+            Edit 
+            <code>
+              src/App.js
+            </code>
+             and save to reload.
+          </p>
+          <a
+            className="emotion-3"
+            href="https://reactjs.org"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
+    </App>
   `);
 });
