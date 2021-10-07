@@ -121,6 +121,7 @@ test('renders', () => {
           </a>
           <div
             _mocking="Launches"
+            count="10"
           />
         </header>
       </div>
