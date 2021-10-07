@@ -3,6 +3,8 @@ import { ThemeProvider } from '@emotion/react';
 import theme from './theme';
 import App from './App';
 
+jest.mock('./Launches', () => () => 'Launches');
+
 const Wrapper = ({ children }) => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
@@ -76,6 +78,7 @@ test('renders', () => {
 
     .emotion-3 {
       color: #61dafb;
+      margin-bottom: 36px;
     }
 
     <div>
@@ -105,6 +108,7 @@ test('renders', () => {
           >
             Learn React
           </a>
+          Launches
         </header>
       </div>
     </div>
