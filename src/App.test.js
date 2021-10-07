@@ -3,6 +3,8 @@ import { ThemeProvider } from '@emotion/react';
 import theme from './theme';
 import App from './App';
 
+jest.mock('./Launches', () => () => 'Launches');
+
 test('renders learn react link', () => {
   const wrapper = mount(<App />, {
     wrappingComponent: ThemeProvider,
@@ -79,6 +81,7 @@ test('renders', () => {
 
     .emotion-3 {
       color: #61dafb;
+      margin-bottom: 36px;
     }
 
     <App>
@@ -108,6 +111,9 @@ test('renders', () => {
           >
             Learn React
           </a>
+          <Component>
+            Launches
+          </Component>
         </header>
       </div>
     </App>
