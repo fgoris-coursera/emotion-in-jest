@@ -55,7 +55,7 @@ function App() {
         >
           Learn React
         </a>
-        <Launches />
+        <Launches count={10} />
       </header>
     </div>
   );

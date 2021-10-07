@@ -2,16 +2,20 @@ import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 
 const GET_LAUNCHES = gql`
-  {
-    launchesPast(limit: 10) {
+  query launches($count: Int!) {
+    launchesPast(limit: $count) {
       id
       mission_name
     }
   }
 `;
 
-let Launches = () => {
-  const { errors, loading, data } = useQuery(GET_LAUNCHES);
+let Launches = ({ count }) => {
+  const { errors, loading, data } = useQuery(GET_LAUNCHES, {
+    variables: {
+      count,
+    },
+  });
 
   return errors ? (
     'Error!'
