@@ -1,28 +1,25 @@
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import { ThemeProvider } from '@emotion/react';
 import theme from './theme';
 import App from './App';
 
-xtest('renders learn react link', () => {
-  const wrapper = shallow(<App />, {
-    wrappingComponent: ThemeProvider,
-    wrappingComponentProps: {
-      theme,
-    },
+const Wrapper = ({ children }) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+);
+
+test('renders learn react link', () => {
+  render(<App />, {
+    wrapper: Wrapper,
   });
-  const link = wrapper.find('a');
-  expect(link).toHaveLength(1);
-  expect(link.text()).toEqual(expect.stringMatching(/learn react/i));
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
 });
 
 test('renders', () => {
-  const wrapper = shallow(<App />, {
-    wrappingComponent: ThemeProvider,
-    wrappingComponentProps: {
-      theme,
-    },
+  const { container } = render(<App />, {
+    wrapper: Wrapper,
   });
-  expect(wrapper).toMatchInlineSnapshot(`
+  expect(container).toMatchInlineSnapshot(`
     @keyframes animation-0 {
       from {
         -webkit-transform: rotate(0deg);
@@ -81,33 +78,35 @@ test('renders', () => {
       color: #61dafb;
     }
 
-    <div
-      className="emotion-0"
-    >
-      <header
-        className="emotion-1"
+    <div>
+      <div
+        class="emotion-0"
       >
-        <img
-          alt="logo"
-          className="emotion-2"
-          src="logo.svg"
-        />
-        <p>
-          Edit 
-          <code>
-            src/App.js
-          </code>
-           and save to reload.
-        </p>
-        <a
-          className="emotion-3"
-          href="https://reactjs.org"
-          rel="noopener noreferrer"
-          target="_blank"
+        <header
+          class="emotion-1"
         >
-          Learn React
-        </a>
-      </header>
+          <img
+            alt="logo"
+            class="emotion-2"
+            src="logo.svg"
+          />
+          <p>
+            Edit 
+            <code>
+              src/App.js
+            </code>
+             and save to reload.
+          </p>
+          <a
+            class="emotion-3"
+            href="https://reactjs.org"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
     </div>
   `);
 });
