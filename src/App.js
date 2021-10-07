@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css, keyframes } from '@emotion/react';
 import logo from './logo.svg';
+import Launches from './Launches';
 
 const appLogoSpin = keyframes`
   from {
@@ -34,6 +35,7 @@ const styles = {
   `,
   appLink: theme => css`
     color: ${theme.colors.link};
+    margin-bottom: 36px;
   `,
 };
 
@@ -53,6 +55,7 @@ function App() {
         >
           Learn React
         </a>
+        <Launches />
       </header>
     </div>
   );
